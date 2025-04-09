@@ -1,5 +1,15 @@
+from flask import Flask
 from app.models import init_db
 from app.repository import add_task, list_tasks, complete_task, delete_task
+
+app = Flask(__name__)
+
+@app.route("/", methods=['GET'])
+def home():
+    return "<h1>Obsidian's flask</h1>"
+
+if __name__ == "__main__":
+    app.run()
 
 init_db()
 
@@ -26,3 +36,4 @@ while True:
         break
     else:
         print("Invalid choice. Try again.")
+
